@@ -1,0 +1,52 @@
+1. 
+
+Checked Exceptions
+-> Exceptions which are sub calss to Exception but not sub class to RunTimeException are Checked Exceptions.
+-> Checked Exceptions needs to be handled with try catch block or add throws to the method signature
+
+User Defined Checked Excpetion: 
+
+public class InvalidAgeException extends Exception{
+
+    public InvalidAgeException() {
+        super("Invalid Age");
+    }
+
+    public InvalidAgeException(String message) {
+        super(message);
+    }
+}
+
+
+
+Unchecked Exceptions
+-> Unchecked Exceptions occurs at Run time. 
+-> try catch is not compulsory
+-> For smooth execution these are to to be handled with the help of try catch
+
+
+User Defined Unchecked Excpetion: 
+
+public class InvalidAgeException extends RunTimeException{
+
+    public InvalidAgeException() {
+        super("Invalid Age");
+    }
+
+    public InvalidAgeException(String message) {
+        super(message);
+    }
+}
+
+
+2. 
+-> throw keyword is used to throw the Exception.
+-> throws keyword is used to let to know that particular method might throw the exception. throws keyword is added to the method signature
+
+3.
+
+-> final is access modifier which is used to declare to the variables and methods. variables acts as contstants.
+	if it is declared to the methods then we cannot override those methods.
+	
+-> finally is a block which is used for closing connections like closing files, database connections etc.
+
