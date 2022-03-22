@@ -25,10 +25,10 @@ public class Main {
 
     int getAge(String dob) throws InvalidAgeException {
 
-//        boolean inputPattern=Pattern.matches("[0,9]{2}/[0,9]{2}/[0,9]{4}",dob);
-//        if(!inputPattern){
-//            throw new InvalidAgeException("please pass the date in the proper format");
-//        }
+        boolean inputPattern=Pattern.matches("[0-9]{2}/[0-9]{2}/[0-9]{4}",dob);
+        if(!inputPattern){
+            throw new InvalidAgeException("please pass the date in the proper format");
+        }
 
 
         LocalDate localDate=LocalDate.now();
