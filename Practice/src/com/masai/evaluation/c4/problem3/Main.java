@@ -44,11 +44,16 @@ class Main {
         Set<Map.Entry<String,Employee>> set= originalMap.entrySet();
         List<Map.Entry<String,Employee>> list=new ArrayList<>(set);
 
-        //list.sort(new EmployeeCompBySalary());
+        //Collections.sort(list, new EmployeeCompBySalary());
 
-        Collections.sort(list,new EmployeeCompBySalary());
+        Collections.sort(list,( s1, s2) -> {
 
-        //list.forEach(item-> System.out.println(item.getKey()+"----> "+item.getValue()));
+            Employee emp1=s1.getValue();
+            Employee emp2=s2.getValue();
+
+            return emp1.getSalary()>emp2.getSalary() ? +1 :-1;
+
+        });
 
         Map<String,Employee> sortedMap=new LinkedHashMap<>();
 
@@ -107,15 +112,15 @@ class Employee{
     }
 }
 
-class EmployeeCompBySalary implements Comparator<Map.Entry<String,Employee>>{
-
-
-    @Override
-    public int compare(Map.Entry<String, Employee> o1, Map.Entry<String, Employee> o2) {
-
-        Employee employee1=o1.getValue();
-        Employee employee2=o2.getValue();
-
-        return employee1.getSalary() > employee2.getSalary() ? +1 : -1;
-    }
-}
+//class EmployeeCompBySalary implements Comparator<Map.Entry<String,Employee>>{
+//
+//
+//    @Override
+//    public int compare(Map.Entry<String, Employee> o1, Map.Entry<String, Employee> o2) {
+//
+//        Employee employee1=o1.getValue();
+//        Employee employee2=o2.getValue();
+//
+//        return employee1.getSalary() > employee2.getSalary() ? +1 : -1;
+//    }
+//}
