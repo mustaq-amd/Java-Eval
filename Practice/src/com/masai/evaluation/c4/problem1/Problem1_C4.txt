@@ -1,0 +1,81 @@
+DeadLock
+==========
+
+-> A lock without a key is known as DeadLock.
+-> In MultiThreading application when two threads are waiting for each other then there is a chance of DeadLock.
+-> synchronized keyword is responsible for DeadLock.
+
+
+Example :
+
+
+class A{
+	
+	public synchronized void funA(B b1){
+	
+		b1.funB(A a1);
+	}
+	
+}
+
+class B{
+	
+	public synchronized void funB(A a1){
+	
+		a1.funA(B b1);
+	}
+	
+}
+
+class ThreadA extends Thread{
+
+A a1;
+B b1;
+
+	public ThreadA(A a1,B b1){
+	this.a1=a1;
+	this.b1=b1;
+	}
+	
+	@Override
+	public void run(){
+	b1.funB(a1)
+	}
+}
+
+class ThreadB extends Thread{
+
+A a1;
+B b1;
+
+	public ThreadB(A a1,B b1){
+	this.a1=a1;
+	this.b1=b1;
+	}
+	
+	@Override
+	public void run(){
+	a1.funA(b1)
+	}
+}
+
+class Main{
+
+	public static void main(String[] arg){
+	
+	A a1=new A();
+	B b1=new B();
+	
+		Thread t1=new ThreadA(a1,b1);
+		Thread t2=new ThreadB(a1,b1);
+		
+		t1.start();
+		t2.start();
+		
+	}
+
+}
+
+In the above two threads will be waiting for each other and deadlock occurs.
+
+There is no solution for DeadLock. But we can prevent it through some ways. One of the ways is removing synchronized keyword
