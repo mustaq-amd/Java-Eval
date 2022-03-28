@@ -14,11 +14,11 @@ public class Main {
         int endValue = Integer.parseInt(array[1]);
         int increment = Integer.parseInt((array[2]));
 
-        String bag="";
-        for (int i = startValue; i <= endValue; i+=increment) {
 
-            bag+=i+" ";
+        for (int i = startValue; i <= endValue; i+=increment) {
+            System.out.print(i+" ");
+
         }
-        System.out.println(bag);
+
     }
 }

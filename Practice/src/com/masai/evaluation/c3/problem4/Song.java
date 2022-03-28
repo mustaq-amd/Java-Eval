@@ -10,7 +10,7 @@ public class Song {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (!(o instanceof Song)) return false;
         Song song = (Song) o;
         return Objects.equals(movieName, song.movieName) && Objects.equals(songName, song.songName);
     }

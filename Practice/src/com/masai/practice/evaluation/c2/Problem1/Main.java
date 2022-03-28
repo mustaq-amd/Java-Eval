@@ -1,5 +1,7 @@
 package com.masai.practice.evaluation.c2.Problem1;
 
+import java.io.Serializable;
+
 public class Main {
 
     public static void main(String[] args) {
@@ -19,6 +21,7 @@ public class Main {
         ClassTwo classTwo=(ClassTwo)interfaceOne;
         classTwo.methodTwo();
         classTwo.methodThree();
+
     }
 
 }
