@@ -35,13 +35,13 @@ class Main {
         Set<Map.Entry<String,Employee>> set= originalMap.entrySet();
         List<Map.Entry<String,Employee>> list=new ArrayList<>(set);
 
-        list.sort(new EmployeeCompBySalary());
+        //list.sort(new EmployeeCompBySalary());
 
-        //Collections.sort(list,new EmployeeCompBySalary());
+        Collections.sort(list,new EmployeeCompBySalary());
 
         //list.forEach(item-> System.out.println(item.getKey()+"----> "+item.getValue()));
 
-        Map<String,Employee> sortedMap=new HashMap<>();
+        Map<String,Employee> sortedMap=new LinkedHashMap<>();
 
         list.forEach(item -> sortedMap.put(item.getKey(), item.getValue()));
 
