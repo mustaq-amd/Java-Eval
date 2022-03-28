@@ -21,7 +21,16 @@ class Main {
         Set<Map.Entry<String,Employee>> entries= sortedMapWithValue.entrySet();
 
         for(Map.Entry<String,Employee> entry:entries){
-            System.out.println(entry.getKey()+"------>"+entry.getValue());
+
+            System.out.println("Department : "+entry.getKey());
+            System.out.println("=======================");
+
+            Employee employee=entry.getValue();
+
+            System.out.println("Employee Id : "+employee.getEmpId());
+            System.out.println("Employee Name : "+employee.getEmpName());
+            System.out.println("Employee Salary : "+employee.getSalary());
+            System.out.println();
         }
 
 
