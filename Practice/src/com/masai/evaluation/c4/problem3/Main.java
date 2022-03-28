@@ -15,7 +15,15 @@ class Main {
         map.put("Accounts",new Employee("109","MS Dhoni",450000.00));
 
         Main main=new Main();
+
         Map<String,Employee> sortedMapWithValue= main.getSortedMapWithValue(map);
+
+        Set<Map.Entry<String,Employee>> entries= sortedMapWithValue.entrySet();
+
+        for(Map.Entry<String,Employee> entry:entries){
+            System.out.println(entry.getKey()+"------>"+entry.getValue());
+        }
+
 
     }
 
@@ -29,9 +37,15 @@ class Main {
 
         list.sort(new EmployeeCompBySalary());
 
-       list.forEach(item-> System.out.println(item.getKey()+"----> "+item.getValue()));
+        //Collections.sort(list,new EmployeeCompBySalary());
 
-        return originalMap ;
+        //list.forEach(item-> System.out.println(item.getKey()+"----> "+item.getValue()));
+
+        Map<String,Employee> sortedMap=new HashMap<>();
+
+        list.forEach(item -> sortedMap.put(item.getKey(), item.getValue()));
+
+        return sortedMap ;
     }
 }
 
