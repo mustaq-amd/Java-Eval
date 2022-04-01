@@ -16,7 +16,7 @@ public class Mobile {
         List <Map.Entry<String, ArrayList<String>>> list=new ArrayList<>(set);
 
         boolean result=list.stream().anyMatch(e-> {
-            return e.getKey()==company;
+            return e.getKey().equals(company);
         });
 
         ArrayList<String> models=new ArrayList<>();
@@ -51,19 +51,38 @@ public class Mobile {
     public static void main(String[] args) {
 
         Mobile mobile=new Mobile();
-        System.out.println(mobile.addMobile("Apple","Iphone13"));
-        System.out.println(mobile.addMobile("Samsung","S11"));
-        System.out.println(mobile.addMobile("Apple","Iphone12"));
-        System.out.println(mobile.addMobile("Samsung","S10"));
-        System.out.println(mobile.addMobile("Apple","IphoneXR"));
 
 
-        List<String> models=mobile.getModels("Apple");
-        System.out.println(models);
+        Scanner scn=new Scanner(System.in);
 
-        List<String> models1=mobile.getModels("Samsung");
-        System.out.println(models1);
 
+        while(true){
+
+            System.out.println("1 Add Mobile");
+            System.out.println("2 Show Models");
+            System.out.println("Enter any other number to stop");
+            System.out.println("Please Enter your choice");
+
+            int choice=scn.nextInt();
+
+            if(choice==1){
+                System.out.println("Please Enter Company Name");
+                String company=scn.next();
+                System.out.println("Please Enter Model Name");
+                String model=scn.next();
+                String result=mobile.addMobile(company,model);
+                System.out.println(result);
+            }
+            else if(choice==2){
+                System.out.println("Please Enter Company Name");
+                String company=scn.next();
+                List<String> models=mobile.getModels(company);
+                System.out.println("Models in "+company+" company are "+models);
+            }
+            else{
+                break;
+            }
+        }
 
     }
 }
