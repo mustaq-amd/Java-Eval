@@ -1,0 +1,64 @@
+A) Interface Seggregation Principle is being viloated because of implementing unwanted methods and throwing Excepyion unnecessarily
+
+B) 
+
+interface DataManager{
+    void read(String data);
+}
+
+interface DiskRealManagerInterface extends DataManager{
+
+
+    void write();
+
+}
+
+interface DiskCoreDataManagerInterface extends DataManager{
+
+    void write();
+
+}
+
+interface InMemoryRealManagerInterface extends DataManager{
+
+}
+
+class DiskRealManager implements DiskRealManagerInterface{
+
+    @Override
+    public void read(String data) {
+        System.out.println("Reading DiskRealManager");
+
+    }
+
+    @Override
+    public void write() {
+        System.out.println("Saving into Realm");
+
+    }
+}
+
+class DiskCoreDataManager implements DiskCoreDataManagerInterface{
+
+    @Override
+    public void read(String data) {
+        System.out.println("Reading DiskCoreDataManager");
+
+    }
+
+    @Override
+    public void write() {
+        System.out.println("Saving into Realm");
+
+    }
+}
+
+class InMemoryRealManager implements InMemoryRealManagerInterface{
+
+    @Override
+    public void read(String data) {
+
+        System.out.println("Reading InMemoryRealManager");
+
+    }
+}

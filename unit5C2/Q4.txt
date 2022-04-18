@@ -1,0 +1,63 @@
+
+interface PaperManufacturer {
+
+    String supplyPaper();
+}
+
+class Paper1 implements PaperManufacturer{
+
+    @Override
+    public String supplyPaper() {
+        return "s1";
+    }
+}
+
+class Paper2 implements PaperManufacturer{
+
+    @Override
+    public String supplyPaper() {
+        return "s2";
+    }
+}
+
+class Paper3 implements PaperManufacturer{
+
+    @Override
+    public String supplyPaper() {
+        return "s3";
+    }
+}
+class PrintMoneyFactory {
+
+    public static PaperManufacturer createPaper(int denomination)
+    {
+
+        switch (denomination) {
+            case 10:
+                return new Paper1();
+            case 100:
+                return new Paper2();
+            case 1000:
+                return new Paper3();
+        }
+    }
+}
+
+
+public class BNP {
+
+    public static void main(String[] args) {
+
+        Scanner scn=new Scanner(System.in);
+
+        System.out.println("Please enter denomination of the paper eg:10 or 100 or 1000");
+        int denomination=scn.nextInt();
+
+        PaperManufacturer pm=PrintMoneyFactory.createPaper(denomination);
+        String result=pm.supplyPaper();
+
+        System.out.println("Required Size is : "+result);
+
+    }
+
+}

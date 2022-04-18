@@ -1,0 +1,40 @@
+public class BinarySearch {
+
+String sortingAlgo;
+
+    BinarySearch(String sortingAlgo){
+        this.sortingAlgo=sortingAlgo;
+
+    }
+
+	public int binarySearch(int[] arr,int target){
+	
+	System.out.println("Array sorted using "+sortingAlgo);
+	
+	// sort the array first using sort()
+	/* binary search Algorithm
+	* no need to implement that
+	* Assume it is here
+	*/
+	}
+	
+}
+
+
+public class SearchingRunner {
+	public static void main(String[] args) {
+	
+	
+		int[] arr={1,3,2}; //unsorted array
+		int target=3;
+		BinarySearch bs1=new BinarySearch("bubble sort");
+		bs1.binarySearch(arr,target);
+		
+		BinarySearch bs2=new BinarySearch("selection sort);
+		bs2.binarySearch(arr,target);
+		
+		BinarySearch bs3=new BinarySearch("another sort");
+		bs3.binarySearch(arr,target);
+		
+	}
+}
