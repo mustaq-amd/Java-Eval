@@ -1,0 +1,54 @@
+A. What do you mean by IoC (Inversion of Control) Container?
+B. What are Spring Beans?
+C. What are the bean scopes available in Spring
+D. What is autowiring and name the different modes of it.What are the limitations
+of autowiring
+
+
+A. If a class depends on another class then dependent class create the object of dependency class and use that object to call the methods
+	of dependency class. But here dependency object is created manually in the main class.
+	
+	-> But if some external entity take care of creating an object of dependency class then we call the control is inverted which is known
+		as Inversion of control. IOC states that external entity provides the dependencies to the application instead of hard coding.
+		
+B. Any Java class which is registered with the spring container is called Spring Bean. Basically Spring Bean is a POJO class.
+
+	Example: Lets assume that there a class Student.java
+	
+	Inside applicationContext.xml file under beans tag
+	
+	<bean id="beanId" class="fully Qualified Class Name"/>
+
+C. There are 4 scopes available for a bean in spring.
+
+Basically scope is nothing but lifespan
+
+1.singleton scope(default)
+2.prototype scope
+3.request scope
+4.session scope
+
+D. The process of creating association between application components is known as Wiring.
+
+There are 2 types
+
+1. Explicit Wiring
+
+If we specify the association using property tag or constructer-arg tag, it is known as Explicit Wiring.
+
+2. Auto Wiring
+
+If Spring container associates dependencies on its own, It is known as Auto Wiring.
+
+Limitations
+------------
+
+1. It is only used for objects not for simple value dependencies.
+2. If container having multiple dependencies of same object then there will ambiguous situation.
+
+
+
+	
+	
+	
+	

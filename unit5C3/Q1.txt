@@ -1,0 +1,89 @@
+
+
+public class Main {
+
+    public static void main(String[] args) {
+
+        // any social media strategy.
+        SocialMediaContext context = new SocialMediaContext();
+        // Setting Facebook strategy.
+
+        context.setSocialMedia(new FacebookStrategy());
+        context.applyStrategy("Lokesh");
+
+        // Setting Twitter strategy.
+        context.setSocialMedia(new TwitterStrategy());
+        context.applyStrategy("Lokesh");
+
+        // Setting GooglePlus strategy.
+        context.setSocialMedia(new GooglePlusStrategy());
+        context.applyStrategy("Lokesh");
+
+        // Setting Orkut strategy.
+        context.setSocialMedia(new OrkutStrategy());
+        context.applyStrategy("Lokesh");
+    }
+}
+
+interface SocialMedia{
+
+    void connect(String name);
+
+}
+
+class FacebookStrategy implements SocialMedia{
+
+    @Override
+    public void connect(String name) {
+
+        System.out.println("Connecting with "+name+" through Facebook");
+    }
+}
+
+class TwitterStrategy implements SocialMedia{
+
+    @Override
+    public void connect(String name) {
+
+        System.out.println("Connecting with "+name+" through Twitter");
+
+    }
+}
+
+class GooglePlusStrategy implements SocialMedia{
+
+    @Override
+    public void connect(String name) {
+
+        System.out.println("Connecting with "+name+" through GooglePlus");
+
+    }
+}
+
+class OrkutStrategy implements SocialMedia{
+
+    @Override
+    public void connect(String name) {
+
+        System.out.println("Connecting with "+name+" through Orkut");
+
+    }
+}
+
+class SocialMediaContext{
+
+    SocialMedia socialMedia;
+
+    public SocialMedia getSocialMedia() {
+        return socialMedia;
+    }
+
+    public void setSocialMedia(SocialMedia socialMedia) {
+        this.socialMedia = socialMedia;
+    }
+
+    public void applyStrategy(String name){
+
+        socialMedia.connect(name);
+    }
+}
