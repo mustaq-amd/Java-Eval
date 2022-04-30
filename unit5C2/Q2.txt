@@ -1,0 +1,112 @@
+Liskov's Substitution Principle
+---------------------------------
+-> Derived types must be completely substitutable for their base types.
+-> LSP states that an object of a superclass should be replaceable by objects of its subclasses without causing issues in the application.
+Therefore, a child class should never change the characteristics of its parent class.
+
+
+Example : Lets say we have an Book Delivery application which delivers books to the particular location. The application has an facility of delivering book 
+		through offline for hardcopies and online for audio books.
+
+//Code violates LSP
+
+public class BookDelivery {
+
+ 	void getDeliveryLocations() {
+
+           //functionality
+     }
+}
+
+
+public class PosterMapDelivery extends BookDelivery {
+
+ 	@Override
+ 	void getDeliveryLocations() {
+              
+		//functionality
+     }
+}
+
+
+public class AudioBookDelivery extends BookDelivery {
+
+ 	@Override
+ 	void getDeliveryLocations() {
+
+       	//functionality
+
+ 	}
+
+}
+
+In the above code AudioBookDelivery doesn't have an physical location .We couldn’t replace the BookDelivery superclass with the
+ AudioBookDelivery subclass without breaking the application.
+
+In order to solve the problem, we need to fix the inheritance hierarchy. Let’s introduce an extra layer that better differentiates book delivery types.
+ The new OfflineDelivery and OnlineDelivery classes split up the BookDelivery superclass. We will also move the getDeliveryLocations() method to OfflineDelivery.
+ Next, we will create a new getSoftwareOptions() method for the OnlineDelivery class.
+
+// Code follows LSP
+
+public class BookDelivery {
+
+
+}
+
+
+public class OfflineDelivery extends BookDelivery {
+
+ 	void getDeliveryLocations() {
+          
+		//functionality
+     }
+}
+
+
+public class OnlineDelivery extends BookDelivery {
+
+ 	void getSoftwareOptions() {
+          
+		//functionality
+     }
+}
+
+
+
+public class PosterMapDelivery extends OfflineDelivery {
+
+ 	@Override
+ 	void getDeliveryLocations() {
+         
+		//functionality
+     }
+
+}
+
+public class AudioBookDelivery extends OnlineDelivery { 	
+
+     @Override
+ 	void getSoftwareOptions() {
+          	
+		//functionality
+     }
+
+}
+
+
+After the refactoring, we could use any subclass in place of its superclass without breaking the application.
+
+
+Advantages : 
+
+Code Resuability
+Easy to maintain
+Reduce Coupling
+
+
+
+
+
+
+
